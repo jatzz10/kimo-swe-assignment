@@ -1,20 +1,18 @@
-FROM python:3.11.1-alpine
+FROM python:3.9.6-alpine
 
-WORKDIR /backend-service
+WORKDIR /app
 
-COPY ./requirements.txt /course-backend-api/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /course-backend-api/requirements.txt
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-COPY . /course-backend-api
+COPY . /app
 
-RUN ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 
 # FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
-
 # COPY requirements.txt /app/requirements.txt
 # RUN pip install -r /app/requirements.txt
-
 # COPY app /app/app
 # COPY tests /app/tests
 # COPY config.py /app/config.py

@@ -5,10 +5,7 @@ services:
     build: .
     ports:
       - "8000:8000"
-    depends_on:
-      - mongo
     environment:
-      COURSES_MONGO_URI: 'mongodb://mongo:27017'
-      COURSES_MONGO_DB: 'courses'
-  mongo:
-    image: mongo
+      MONGODB_USER: jsharmaishere
+      MONGODB_PASSWORD: KCXRcwocxBBgKsWR
+      MONGODB_HOST: cluster0.b4ad5xn.mongodb.net

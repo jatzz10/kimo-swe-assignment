@@ -3,8 +3,8 @@ from typing import List
 
 
 class Chapter(BaseModel):
-    title: str
-    contents: str
+    name: str
+    text: str
     rating: int = 0
 
 class Course(BaseModel):

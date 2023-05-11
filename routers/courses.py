@@ -2,10 +2,9 @@ from fastapi import APIRouter, Query
 from pymongo import ASCENDING, DESCENDING
 from typing import List
 from bson import ObjectId
-from datetime import datetime
 
-from models import Course, Chapter
-from main import collection
+from models.courses import Course, Chapter
+from config import collection
 
 router = APIRouter()
 
@@ -50,5 +49,14 @@ def rate_chapter(course_id: str, chapter_index: int, rating: bool):
     course = collection.find_one({'_id': ObjectId(course_id)})
     if course and chapter_index < len(course['chapters']):
         chapters = course['chapters']
-        chapters[chapter_index]['rating'] += 1 if rating else -1
+        chapters[chapter_index]['rating'] += 1 if rating else -1    
+        course_rating_aggregate = sum([chapter['rating'] for chapter in chapters])
+        
+        collection.update_one({'_id': ObjectId(course_id)}, {'$set': {
+            'chapters': chapters,
+            'rating': course_rating_aggregate
+        }})
+        return course['chapters'][chapter_index]
+    else:
+        return {'error': 'Chapter not found.'}
        
