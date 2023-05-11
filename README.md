@@ -34,3 +34,9 @@ for each course.
 --- 
 
 ## Screenshots and Vidoes
+<img width="1440" alt="Screenshot 2023-05-12 at 3 30 12 AM" src="https://github.com/jatzz10/kimo-swe-assignment/assets/41716010/9e3f0208-2125-4ab8-90ad-e797a59d446c">
+<img width="1440" alt="Screenshot 2023-05-12 at 3 30 43 AM" src="https://github.com/jatzz10/kimo-swe-assignment/assets/41716010/3835a3f4-4636-43f5-98f2-8e0657fd90ed">
+
+
+https://github.com/jatzz10/kimo-swe-assignment/assets/41716010/19566c6e-c4d5-495b-abd4-6cf0408ee601
+
